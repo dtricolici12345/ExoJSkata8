@@ -75,7 +75,7 @@ console.log(res);
 // }
 
 // CODE ICI
-onst sumOfArray = (array) => {
+const sumOfArray = (array) => {
     let sum = 0;
     for (let i = 0; i < array.length; i++) {
         sum += array[i];
@@ -87,6 +87,7 @@ onst sumOfArray = (array) => {
 const myArray = [1, 2, 3];
 const result = sumOfArray(myArray);
 console.log(result);
+
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 5
@@ -259,7 +260,18 @@ console.log(res);
 // })
 
 // CODE ICI
+const myArray = [1, 2, 3];
 
+const myArrayAdd = (array) => {
+    const newArray = array.map((element) => {
+        return element + 1;
+    });
+
+    return newArray;
+};
+
+const res = myArrayAdd(myArray);
+console.log(res);
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 12
@@ -273,7 +285,16 @@ console.log(res);
 // })
 
 // CODE ICI
+const myStringArray = ["Hello", "World"];
+const myStringArrayLong = (array) => {
+    const newArray = array.map((element) => {
+        return element.length
 
+    });
+    return newArray;
+};
+const res = myStringArrayLong(myStringArray);
+console.log(res);
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 13
@@ -288,6 +309,15 @@ console.log(res);
 // })
 
 // CODE ICI
+const myStringArray = ["Hello", "World"];
+const myStringArrayFirstLetter = (array) => {
+    const newArray = array.map((element) => {
+        return element.charAt(0);
+    });
+return newArray;
+};
+const res = myStringArrayFirstLetter(myStringArray);
+console.log(res);
 
 //----------------------------------------------------------------------------------------------//
 
@@ -299,7 +329,15 @@ console.log(res);
 
 
 // CODE ICI
-
+const myStringArray = ["Hello", "World"];
+const myStringArrayFirstLetter = (array) => {
+    const newArray = array.map((element) => {
+        return element.charAt(element.length - 1);
+    });
+return newArray;
+};
+const res = myStringArrayFirstLetter(myStringArray);
+console.log(res);
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 15
@@ -309,6 +347,16 @@ console.log(res);
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la longueur de la string. Incice : la méthode length() permet de récupérer la longueur d'une string.
 
 // CODE ICI
+const myStringArray = ["Hello", "World", "Test", "Salut", "Yo"];
+const myStringArray5Plus = (array) => {
+    const textArrayFilter = array.filter((element) => {
+        return element.length >= 5;
+    });
+    return textArrayFilter;
+};
+const res = myStringArray5Plus(myStringArray);
+console.log(res);
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -323,6 +371,17 @@ console.log(res);
 // }, 0)
 
 // CODE ICI
+const myArray = [1, 2, 3];
+const myArraySum = (array) => {
+    const somme = array.reduce((accumulateur, element) => {
+        return accumulateur + element;
+    }, 0);
+
+    return somme; 
+};
+
+const res = myArraySum(myArray);
+console.log(res);
 
 //----------------------------------------------------------------------------------------------//
 
@@ -337,7 +396,16 @@ console.log(res);
 // console.log(monTableauConcat) // ["Hello", "World", "Test", "Salut"]
 
 // CODE ICI
+const myArrayString1 = ["Hello", "World"];
+const myArrayString2 = ["Test", "Salut"];
 
+const concatTwoArrayString = (array1, array2) => {
+  const newArray = array1.concat(array2);
+  return newArray;
+};
+
+const res = concatTwoArrayString(myArrayString1, myArrayString2);
+console.log(res);
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 18
@@ -347,6 +415,19 @@ console.log(res);
 // Pour cette exercice on va utiliser la méthode filter() qui permet de filtrer un tableau, hésitez pas à regarder l'exercice 8 pour voir comment ça fonctionne. Sauf qu'ici on va filtrer en fonction de la présence de la lettre "e". Indice : la méthode includes() permet de savoir si une string contient une lettre ou un mot.
 
 // CODE ICI
+const myArrayString = ["Poulet", "Chat", "Chien", "Cheval"];
+
+const filterStrings = (array) => {
+  const newArray = array.filter((element) => {
+    return element.includes("e");
+  });
+  return newArray;
+};
+
+const res = filterStrings(myArrayString);
+console.log(res);
+
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -357,7 +438,18 @@ console.log(res);
 // Indice : il y a plusieurs façon de faire, soit avec un for, soit avec la méthode filter() une fois ça fait utilise la méthode sort() qui permet de trier un tableau.
 
 // CODE ICI
+const filterAndSortEvenNumbers = (array) => {
+    
+    const evenNumbers = array.filter((number) => number % 2 === 0);
+    const sortedEvenNumbers = evenNumbers.sort((a, b) => a - b);
+  
+    return sortedEvenNumbers;
+  };
+  
 
+  const myArray = [2, 9, 6, 5, 6];
+  const result = filterAndSortEvenNumbers(myArray);
+  console.log(result); /
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 20
