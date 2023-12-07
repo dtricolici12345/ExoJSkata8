@@ -40,6 +40,26 @@ const firstElementofArray = (array) => {
 const res = firstElementofArray(element);
 console.log(res);
 
+
+//MON Exercice
+//Crée une fonction qui prend en paramètre un tableau et qui retourne le dernier élément du tableau.
+const lastElementOfArray = (array) => {
+    if (array.length > 0) {
+        return array[array.length - 1];
+    } else {
+        return null;
+    }
+};
+
+const myArray = [1, 2, 3, 4, 5];
+const result = lastElementOfArray(myArray);
+console.log(result);
+
+
+
+
+
+
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 3
 
@@ -62,6 +82,36 @@ const removeElementofArray = (array) => {
 };
 
 const res = removeElementofArray(element);
+console.log(res);
+
+//MON Exercice SHIFT
+//Crée une fonction qui prend en paramètre un tableau et qui doit supprimer le premier élément du tableau.
+const element = [1, 2, 3];
+const removeElementofArray = (array) => {
+    if (array.length > 0) {
+        array.shift();
+        return array;
+    } else {
+        return null;
+    }
+};
+
+const res = removeElementofArray(element);
+console.log(res);
+ 
+//MON EXERCISE SPLICE
+//Crée une fonction qui prend en paramètre un tableau et qui doit supprimer le troisieme élément du tableau.
+const removeThirdElementFromArray = (array) => {
+    if (array.length >= 3) {
+        array.splice(2, 1);// un element a partir de 2index
+        return array;
+    } else {
+        return null;
+    }
+};
+
+const myArray = [1, 2, 3, 4, 5];
+const res = removeThirdElementFromArray(myArray);
 console.log(res);
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 4
@@ -161,6 +211,27 @@ const mixElementOfArray = (array) => {
 
 const res = mixElementOfArray(myArray);
 console.log(res);
+
+
+
+
+//MON EXERCISE DIFFERENCE Entre MIN ET MAX
+//Crée une fonction qui prend en paramètre un tableau de nombres et qui retourne la différence entre le plus grand et le plus petit nombre du tableau.
+
+const differenceBetweenMaxAndMin = (array) => {
+    if (array.length === 0) {
+        return "Nothing";
+    }
+
+    const min = Math.min(...array);
+    const max = Math.max(...array);
+
+    return max - min;
+};
+
+const myNumbers = [5, 2, 8, 1, 7];
+const result = differenceBetweenMaxAndMin(myNumbers);
+console.log(result);
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 8
@@ -192,6 +263,45 @@ const textSansVoyelles = (text) => {
 
 const res = textSansVoyelles(text);
 console.log(res);
+
+
+//MON EXERCISE 
+//Crée une fonction qui prend en paramètre une chaîne de caractères et retourne la chaîne de caractères sans les consonnes.
+const text = "Hello, my name is Daniela";
+
+const textSansConsonnes = (text) => {
+    if (text.length > 0) {
+        const textArray = text.split("");
+        const textFilter = textArray.filter((element) => {
+            return element !== "H" && element !== "l" && element !== "m" && element !== "n" && element !== "s" && element !== "D";
+        });
+        return textFilter.join("");
+    } else {
+        return null;
+    }
+};
+
+const res = textSansConsonnes(text);
+console.log(res);
+
+//2eme version
+const removeConsonants = (inputString) => {
+    if (typeof inputString === 'string') {
+        // Utilise une expression régulière pour enlever les consonnes
+        const stringWithoutConsonants = inputString.replace(/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/g, '');
+
+        return stringWithoutConsonants;
+    } else {
+        return null; // Retourne null si l'entrée n'est pas une chaîne de caractères
+    }
+};
+
+// Exemple d'utilisation
+const input = "Hello, my name is Daniela";
+const result = removeConsonants(input);
+console.log(result);
+
+
 //--------------------------------------------------------------------------//
 
 // EXERCICE 9
@@ -215,6 +325,27 @@ const myArraySort = (array) => {
 
 const res = myArraySort(myArray);
 console.log(res);
+
+
+//MON EXERCISE SORT
+//Crée une fonction qui prend en paramètre un tableau de nombres et qui retourne le tableau trié par ordre décroissant.
+const trierParOrdreDecroissant = (array) => {
+    return array.sort((a, b) => b - a);//Pour les éléments 5 et 1, b - a donne 5 - 1, soit 4. Comme le résultat est positif, 5 est considéré comme avant 1.
+};
+
+const tableauDeNombres = [5, 2, 8, 1, 9];
+const tableauTrie = trierParOrdreDecroissant(tableauDeNombres);
+console.log(tableauTrie);
+
+//MON EXERCISE SORT
+//Crée une fonction qui prend en paramètre un tableau de nombres et qui retourne le tableau trié par ordre croissant.
+
+const numbers = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5];
+
+const sortedNumbers = numbers.sort((a, b) => a - b);
+
+console.log(sortedNumbers);
+
 
 //----------------------------------------------------------------------------------------------//
 
@@ -439,7 +570,7 @@ console.log(res);
 
 // CODE ICI
 const filterAndSortEvenNumbers = (array) => {
-    
+
     const evenNumbers = array.filter((number) => number % 2 === 0);
     const sortedEvenNumbers = evenNumbers.sort((a, b) => a - b);
   
@@ -715,3 +846,46 @@ const filterAndSortEvenNumbers = (array) => {
 
 // console.log(sortString(["Banana", "Orange", "Apple", "Mango"]))
 
+
+
+//MON EXERCISE FACTORIAL
+//Écrivez une fonction qui prend un tableau de nombres et renvoie un tableau de leurs factorielles.
+function calculateFactorials(array) {
+    function factorial(x) {
+        if (x === 0 || x === 1) {
+            return 1;
+        } else {
+            return x * factorial(x - 1);
+        }
+    }
+
+    return array.map(factorial);
+}
+
+const numbers = [1, 2, 3, 4, 5];
+const factorials = calculateFactorials(numbers);
+console.log(factorials);
+
+
+//MON EXERCISE FACTORIAL
+//Crée une fonction qui prend un nombre et renvoie la somme des factorielles de tous les nombres de 1 à ce nombre. 
+
+function calculateSumOfFactorials(n) {
+    function factorial(x) {
+        if (x === 0 || x === 1) {
+            return 1;
+        } else {
+            return x * factorial(x - 1);
+        }
+    }
+
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += factorial(i);
+    }
+
+    return sum;
+}
+
+const result = calculateSumOfFactorials(5);
+console.log(result); //153
