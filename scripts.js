@@ -617,6 +617,27 @@ const filterAndSortEvenNumbers = (array) => {
 
 // CODE ICI
 
+const myString = "Prachett is the best author in the world";
+
+const findShort = (text) => {
+    // Разделение строки на массив слов
+    const myArraySplit = text.split(" ");
+
+    // Использование метода map для создания массива длин каждого слова
+    const wordLengths = myArraySplit.map(word => word.length);
+
+    // Сортировка массива длин в порядке возрастания
+    const sortedWordLengths = wordLengths.sort((a, b) => a - b);
+
+    // Получение первой (самой короткой) длины слова
+    const shortestWordLength = sortedWordLengths[0];
+
+    return shortestWordLength;
+};
+
+// Вызов функции и вывод результата
+const res = findShort(myString);
+console.log(res); // Renvoie 2
 
 
 
@@ -658,7 +679,18 @@ const filterAndSortEvenNumbers = (array) => {
 
 // CODE ICI
 
+const anagram = (str1, str2) => {
+    // Преобразование строк в массивы и их сортировка
+    const arr1 = str1.split('').sort();
+    const arr2 = str2.split('').sort();
 
+    // Сравнение отсортированных массивов как строк
+    return arr1.join('') === arr2.join('');
+};
+
+
+const result = anagram("listen", "silent");
+console.log(result);  // Renvoie true
 
 
 
@@ -700,10 +732,19 @@ const filterAndSortEvenNumbers = (array) => {
 
 // CODE ICI
 
+const mystring = "Mappete";
+const removeDoubleLetters = (text) => {
+    const myArray = text.split("");
+    let myArrayFilter = myArray.filter((element, index) => {
+        return element !== myArray[index + 1];
+    });
+    const res = myArrayFilter.join(""); 
+    return res;
+};
 
 
-
-
+const result = removeDoubleLetters(mystring);
+console.log(result);
 
 
 //----------------------------------------------------------------------------------------------//
@@ -746,7 +787,26 @@ const filterAndSortEvenNumbers = (array) => {
 // CODE ICI
 
 
+const createPhoneNumber = (numbers) => {
+    // Проверка, имеет ли массив правильную длину
+    if (numbers.length !== 10) {
+        return "Массив должен содержать 10 целых чисел.";
+    }
 
+    // Разделение массива на части
+    const firstPart = numbers.slice(0, 3).join('');
+    const secondPart = numbers.slice(3, 6).join('');
+    const thirdPart = numbers.slice(6).join('');
+
+    // Формирование телефонного номера
+    const phoneNumber = `(${firstPart}) ${secondPart}-${thirdPart}`;
+    
+    return phoneNumber;
+};
+
+// Пример использования
+const phoneNumber = createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
+console.log(phoneNumber); // "(123) 456-7890"
 
 
 //----------------------------------------------------------------------------------------------//
