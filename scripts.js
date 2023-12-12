@@ -790,7 +790,7 @@ console.log(result);
 const createPhoneNumber = (numbers) => {
     // Проверка, имеет ли массив правильную длину
     if (numbers.length !== 10) {
-        return "Массив должен содержать 10 целых чисел.";
+        return "Il faut avoir 10 chiffres";
     }
 
     // Разделение массива на части
@@ -964,7 +964,13 @@ console.log(result); //153
 // Indice : Pour trouver le troisième angle, tu dois soustraire la somme des deux angles donnés à 180 degrés.
 
 // CODE ICI
-
+const treeAngle = (a, b) => {
+    sumAngle = 180;
+    return sumAngle - a - b;
+};
+const res1 = treeAngle(30, 60) ;
+const res2 = treeAngle(60, 60);
+ console.log(res1, res2);
 //----------------------------------------------------------------------------------------------//
 
 // EXERCICE 27
@@ -976,6 +982,16 @@ console.log(result); //153
 // Indice : Pour savoir ça tu peux utiliser le modulo. Si une année est divisible par 4 et que le reste de la division est égal à 0, alors c'est une année bissextile.
 
 // CODE ICI
+const isLeapYear = (year) => {
+    if (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  
+  console.log(isLeapYear(2020)); // true
+  console.log(isLeapYear(2021)); // false
 
 //----------------------------------------------------------------------------------------------//
 
@@ -1000,8 +1016,27 @@ const animals = [
 // Indice : Oubliez pas que tu peux créer des variables qui contiennent des tableaux vides et que tu peux ajouter des éléments à un tableau avec la méthode push(). Mais vu que tu dois analyser le tableau d'animaux pour le trier, tu dois utiliser une boucle et faire des conditions if pour savoir si l'animal est domestique ou sauvage. Et tu dois trier les animaux domestiques par ordre alphabétique et les animaux sauvages par ordre alphabétique inversé. Pour trier un tableau par ordre alphabétique tu peux utiliser la méthode sort(). Pour trier un tableau par ordre alphabétique inversé tu peux utiliser la méthode reverse().
 
 // CODE ICI
-
-
+const sortAnimals = (animals) => {
+    let tableauDomestic = [];
+    let tableauWild = [];
+  
+    for (let i = 0; i < animals.length; i++) {
+      if (animals[i].type === "Domestic") {
+        tableauDomestic.push(animals[i].name);
+      } else {
+        tableauWild.push(animals[i].name);
+      }
+    }
+  
+    tableauDomestic.sort();
+    tableauWild.sort().reverse();
+  
+    const tableauFinal = [tableauDomestic, tableauWild];
+    return tableauFinal;
+  };
+  
+  const res = sortAnimals(animals);
+  console.log(res);
 
 
 
