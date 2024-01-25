@@ -22,6 +22,7 @@ console.log(res);
 //----------------------------------------------------------------------------------------------//
 // EXERCICE 2
 
+
 // Crée une fonction qui prend en paramètre un tableau et qui retourne le premier élément du tableau.
 // Exemple : [1, 2, 3] => 1
 // Pour rappel pour accéder à un élément d'un tableau on utilise la méthode [laplaceDuNombreDeL'élément] :
@@ -42,6 +43,10 @@ console.log(res);
 
 
 //MON Exercice
+
+
+
+
 //Crée une fonction qui prend en paramètre un tableau et qui retourne le dernier élément du tableau.
 const lastElementOfArray = (array) => {
     if (array.length > 0) {
@@ -70,6 +75,7 @@ console.log(result);
 // monTableau.pop()
 // console.log(monTableau) // [1, 2]
 
+
 // CODE ICI
 const element = [1, 2, 3];
 const removeElementofArray = (array) => {
@@ -83,6 +89,9 @@ const removeElementofArray = (array) => {
 
 const res = removeElementofArray(element);
 console.log(res);
+
+
+
 
 //MON Exercice SHIFT
 //Crée une fonction qui prend en paramètre un tableau et qui doit supprimer le premier élément du tableau.
@@ -123,6 +132,7 @@ console.log(res);
 // for (let i = 0; i < monTableau.length; i++) {
 //   console.log(monTableau[i]) // 1, 2, 3
 // }
+
 
 // CODE ICI
 const sumOfArray = (array) => {
@@ -804,7 +814,7 @@ const createPhoneNumber = (numbers) => {
     return phoneNumber;
 };
 
-// Пример использования
+
 const phoneNumber = createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 console.log(phoneNumber); // "(123) 456-7890"
 
@@ -843,7 +853,19 @@ console.log(phoneNumber); // "(123) 456-7890"
 // CODE ICI
 
 
+function findMissingLetter(array) {
+    const charCodes = array.map(char => char.charCodeAt(0));
+    for (let i = 1; i < charCodes.length; i++) {
+        if (charCodes[i] - charCodes[i - 1] > 1) {
+            return String.fromCharCode(charCodes[i - 1] + 1);
+        }
+    }
 
+    return undefined;
+}
+
+console.log(findMissingLetter(["a", "b", "c", "d", "f"])); // "e"
+console.log(findMissingLetter(["O", "Q", "R", "S"]));      // "P"
 
 
 
@@ -1221,3 +1243,30 @@ sumArr( ["2", "5", "3"], ["2", "4", "9", "5", "5"] ) should return ["4", "9", "1
 // }
 
 // console.log(sumArr(["1", "2", "3"], ["2", "4", "1"]))
+
+
+
+
+
+
+
+
+ // Implémenter la fonction filterDuplicate qui prend un tableau en paramètre et qui doit renvoyer un tableau sans doublons.
+
+// Exemple du résultat attendu :
+// filterDuplicate([1, 2, 2, 3, 4, 4, 5]) // [1, 2, 3, 4, 5]
+
+
+
+
+const filterDuplicate = (tab) => {
+
+    const uniqueSet = new Set(tab);
+
+    
+    const uniqueArray = [...uniqueSet];
+
+    return uniqueArray;
+}
+
+console.log(filterDuplicate([1, 2, 2, 3, 4, 4, 5])); // [1, 2, 3, 4, 5]
